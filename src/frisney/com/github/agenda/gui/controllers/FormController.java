@@ -70,13 +70,9 @@ public class FormController implements Initializable {
     }
 
     public void confirmar(ActionEvent event){
-        switch (action){
-            case 'E':
-                editaContato();
-                break;
-            case 'A':
-                criaContato();
-                break;
+        switch (action) {
+            case 'E' -> editaContato();
+            case 'A' -> criaContato();
         }
         goBack(event);
     }
