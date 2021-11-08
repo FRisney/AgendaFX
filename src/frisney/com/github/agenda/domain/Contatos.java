@@ -20,6 +20,9 @@ public class Contatos {
         contatos.add(contato);
     }
 
+    public static void delContato(Contato contato) { contatos.remove(contato); }
+    public static void delContato(int index) { contatos.remove(index); }
+
     public static Contato getContato(int index) throws Exception {
         try{
             return contatos.get(index);

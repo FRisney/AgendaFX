@@ -16,6 +16,10 @@ import java.util.ResourceBundle;
 
 public class ListController implements Initializable {
     @FXML
+    private Button btnDel;
+    @FXML
+    private Button btnEdita;
+    @FXML
     private Button btnNovo;
     @FXML
     private TableView<Contato> tblLista;
@@ -39,5 +43,14 @@ public class ListController implements Initializable {
         if (index < 0) return;
 
         Navegador.navigateWithParam("form",index);
+    }
+
+    public void removeContato(ActionEvent event){
+        int index = tblLista.getSelectionModel().getSelectedIndex();
+        if (index < 0) return;
+
+        Contatos.delContato(index);
+
+        tblLista.refresh();
     }
 }

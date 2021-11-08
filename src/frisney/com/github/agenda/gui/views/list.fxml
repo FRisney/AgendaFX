@@ -19,8 +19,9 @@
             <HBox alignment="TOP_CENTER" spacing="20.0" VBox.vgrow="NEVER">
                <children>
                   <TextField promptText="Busca" />
-                  <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#goNovoContato" text="Novo Contato" />
-                  <Button fx:id="btnNovo1" layoutX="307.0" layoutY="10.0" mnemonicParsing="false" onAction="#selecionaContato" text="Editar Contato" />
+                  <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#goNovoContato" text="Novo" />
+                  <Button fx:id="btnEdita" layoutX="307.0" layoutY="10.0" mnemonicParsing="false" onAction="#selecionaContato" text="Editar" />
+                  <Button fx:id="btnDel" layoutX="368.0" layoutY="10.0" mnemonicParsing="false" onAction="#removeContato" text="Remover" />
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" top="20.0" />
