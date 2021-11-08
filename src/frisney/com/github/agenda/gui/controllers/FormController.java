@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 
 public class FormController implements Initializable {
     @FXML
+    private Button btnDel;
+    @FXML
     private Button btnCancelar;
     @FXML
     private Button btnCriar;
@@ -55,6 +57,7 @@ public class FormController implements Initializable {
             System.out.println(contato.recupera());
 
             lblTitle.setText("Editar Contato");
+            btnDel.setVisible(true);
             action = 'E';
 
             fldNome.setText(contato.getNome());
@@ -106,5 +109,18 @@ public class FormController implements Initializable {
         contato.setInfo(new Email(fldEmail.getText()));
         System.out.println(contato.recupera());
         ContatosMemoria.addContato(contato);
+    }
+
+    public void removeContato(ActionEvent event){
+        System.out.println("===============");
+        if (editIndex < 0){
+            System.out.println("Contato nao selecionado");
+            return;
+        }
+        System.out.println("Removendo Contato");
+        System.out.printf("\tIndice: %d\n",editIndex);
+        ContatosMemoria.delContato(editIndex);
+        System.out.println("Removido Contato");
+        Navegador.navigate("list");
     }
 }

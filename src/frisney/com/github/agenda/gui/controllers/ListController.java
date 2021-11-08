@@ -16,8 +16,6 @@ import java.util.ResourceBundle;
 
 public class ListController implements Initializable {
     @FXML
-    private Button btnDel;
-    @FXML
     private Button btnEdita;
     @FXML
     private Button btnNovo;
@@ -51,19 +49,5 @@ public class ListController implements Initializable {
         }
 
         Navegador.navigateWithParam("form",index);
-    }
-
-    public void removeContato(ActionEvent event){
-        System.out.println("===============");
-        int index = tblLista.getSelectionModel().getSelectedIndex();
-        if (index < 0){
-            System.out.println("Contato nao selecionado");
-            return;
-        }
-        System.out.println("Removendo Contato");
-        System.out.printf("\tIndice: %d\n",index);
-        ContatosMemoria.delContato(index);
-        System.out.println("Removido Contato");
-        Navegador.navigate("list");
     }
 }

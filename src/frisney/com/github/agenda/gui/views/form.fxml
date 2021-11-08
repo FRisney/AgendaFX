@@ -27,6 +27,7 @@
          <children>
             <Button fx:id="btnCriar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#goBack" text="Cancelar" />
+            <Button fx:id="btnDel" layoutX="186.0" layoutY="10.0" mnemonicParsing="false" onAction="#removeContato" text="Remover" visible="false" />
          </children>
          <BorderPane.margin>
             <Insets />
