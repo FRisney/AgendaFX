@@ -1,6 +1,6 @@
 package frisney.com.github.agenda.gui.controllers;
 
-import frisney.com.github.agenda.domain.Contatos;
+import frisney.com.github.agenda.domain.ContatosMemoria;
 import frisney.com.github.agenda.domain.Navegador;
 import frisney.com.github.listacontatos.classes.Contato;
 import javafx.collections.FXCollections;
@@ -34,23 +34,36 @@ public class ListController implements Initializable {
     }
 
     public void carregarDados(){
-        ObservableList<Contato> listaContatos = FXCollections.observableArrayList(Contatos.getContatos());
+        System.out.println("===============");
+        ObservableList<Contato> listaContatos = FXCollections.observableArrayList(
+                ContatosMemoria.getContatos()
+        );
+        System.out.println("Carregando lista de " + listaContatos.size() + " contatos");
         this.tblLista.setItems(listaContatos);
     }
 
     public void selecionaContato(ActionEvent event){
+        System.out.println("===============");
         int index = tblLista.getSelectionModel().getSelectedIndex();
-        if (index < 0) return;
+        if (index < 0){
+            System.out.println("Contato nao selecionado");
+            return;
+        }
 
         Navegador.navigateWithParam("form",index);
     }
 
     public void removeContato(ActionEvent event){
+        System.out.println("===============");
         int index = tblLista.getSelectionModel().getSelectedIndex();
-        if (index < 0) return;
-
-        Contatos.delContato(index);
-
-        tblLista.refresh();
+        if (index < 0){
+            System.out.println("Contato nao selecionado");
+            return;
+        }
+        System.out.println("Removendo Contato");
+        System.out.printf("\tIndice: %d\n",index);
+        ContatosMemoria.delContato(index);
+        System.out.println("Removido Contato");
+        Navegador.navigate("list");
     }
 }

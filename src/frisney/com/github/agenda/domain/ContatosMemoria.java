@@ -1,11 +1,10 @@
 package frisney.com.github.agenda.domain;
 
 import frisney.com.github.listacontatos.classes.Contato;
-import frisney.com.github.listacontatos.enums.TipoInfo;
 
 import java.util.ArrayList;
 
-public class Contatos {
+public class ContatosMemoria {
     private static ArrayList<Contato> contatos;
 
     public static ArrayList<Contato> getContatos() {
@@ -13,7 +12,7 @@ public class Contatos {
     }
 
     public static void setContatos(ArrayList<Contato> contatos) {
-        Contatos.contatos = contatos;
+        ContatosMemoria.contatos = contatos;
     }
 
     public static void addContato(Contato contato){

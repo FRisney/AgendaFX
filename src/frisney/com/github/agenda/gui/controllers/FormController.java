@@ -1,6 +1,6 @@
 package frisney.com.github.agenda.gui.controllers;
 
-import frisney.com.github.agenda.domain.Contatos;
+import frisney.com.github.agenda.domain.ContatosMemoria;
 import frisney.com.github.agenda.domain.Navegador;
 import frisney.com.github.listacontatos.classes.Contato;
 import frisney.com.github.listacontatos.classes.Email;
@@ -43,10 +43,16 @@ public class FormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try{
             var param = Navegador.getParameter();
-            if (param == null || (int)param < 0) return;
+            if (param == null || (int)param < 0){
+                System.out.println("Contato nao selecionado");
+                return;
+            }
             editIndex = (int) param;
 
-            Contato contato = Contatos.getContato(editIndex);
+            Contato contato = ContatosMemoria.getContato(editIndex);
+
+            System.out.println("Editando Contato");
+            System.out.println(contato.recupera());
 
             lblTitle.setText("Editar Contato");
             action = 'E';
@@ -73,25 +79,32 @@ public class FormController implements Initializable {
     }
 
     public void editaContato(){
+        System.out.println("===============");
+        System.out.println("Contato Editado");
         Contato novoContato = new Contato(
             fldNome.getText(),
             fldSobrenome.getText()
         );
         novoContato.setInfo(new Telefone(fldTelefone.getText(),TipoTelefone.CELULAR));
+        novoContato.setInfo(new Email(fldEmail.getText()));
+        System.out.println(novoContato.recupera());
         try {
-            Contatos.updateContato(editIndex,novoContato);
+            ContatosMemoria.updateContato(editIndex,novoContato);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void criaContato(){
+        System.out.println("===============");
+        System.out.println("Criando Contato");
         Contato contato = new Contato(
                 fldNome.getText(),
                 fldSobrenome.getText()
         );
         contato.setInfo(new Telefone(fldTelefone.getText(),TipoTelefone.CELULAR));
         contato.setInfo(new Email(fldEmail.getText()));
-        Contatos.addContato(contato);
+        System.out.println(contato.recupera());
+        ContatosMemoria.addContato(contato);
     }
 }

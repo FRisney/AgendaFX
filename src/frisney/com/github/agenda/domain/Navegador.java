@@ -30,7 +30,7 @@ public class Navegador {
 
     public static void navigate(String view){
         try {
-            System.out.printf("Navegando para %s\n",view);
+            System.out.printf("=== Navegando para %s ===\n",view);
             Parent root = (Parent)FXMLLoader.load(
                 Navegador.class.getResource(_views.get(view))
             );
