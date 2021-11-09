@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="jdk" jdkName="azul-16" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="ListaContatos" />
+    <orderEntry type="library" name="ListaContatos" level="project" />
+    <orderEntry type="library" name="sqlite-jdbc-3.36.0.3" level="project" />
   </component>
 </module>
