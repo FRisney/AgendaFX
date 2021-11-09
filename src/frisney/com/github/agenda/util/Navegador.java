@@ -1,4 +1,4 @@
-package frisney.com.github.agenda.domain;
+package frisney.com.github.agenda.util;
 
 import java.util.HashMap;
 import java.util.Map;

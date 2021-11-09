@@ -1,7 +1,7 @@
 package frisney.com.github.agenda.gui.controllers;
 
 import frisney.com.github.agenda.domain.ContatosMemoria;
-import frisney.com.github.agenda.domain.Navegador;
+import frisney.com.github.agenda.util.Navegador;
 import frisney.com.github.listacontatos.classes.Contato;
 import frisney.com.github.listacontatos.classes.Email;
 import frisney.com.github.listacontatos.classes.Telefone;

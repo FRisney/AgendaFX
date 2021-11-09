@@ -1,7 +1,7 @@
 package frisney.com.github.agenda;
 
 import frisney.com.github.agenda.domain.ContatosMemoria;
-import frisney.com.github.agenda.domain.Navegador;
+import frisney.com.github.agenda.util.Navegador;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
