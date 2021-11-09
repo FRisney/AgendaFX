@@ -1,6 +1,7 @@
 package frisney.com.github.agenda;
 
-import frisney.com.github.agenda.domain.ContatosMemoria;
+import frisney.com.github.agenda.domain.Contatos;
+import frisney.com.github.agenda.domain.DataSource;
 import frisney.com.github.agenda.util.Navegador;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -16,7 +17,7 @@ public class Main extends Application {
             Map.entry("list","list.fxml"),
             Map.entry("form","form.fxml")
         ));
-        ContatosMemoria.initialize();
+        Contatos.initialize(DataSource.Memory);
         Navegador.navigate("list");
     }
 

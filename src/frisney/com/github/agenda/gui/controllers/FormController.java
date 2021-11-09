@@ -1,6 +1,6 @@
 package frisney.com.github.agenda.gui.controllers;
 
-import frisney.com.github.agenda.domain.ContatosMemoria;
+import frisney.com.github.agenda.domain.Contatos;
 import frisney.com.github.agenda.util.Navegador;
 import frisney.com.github.listacontatos.classes.Contato;
 import frisney.com.github.listacontatos.classes.Email;
@@ -51,7 +51,7 @@ public class FormController implements Initializable {
             }
             editIndex = (int) param;
 
-            Contato contato = ContatosMemoria.getContato(editIndex);
+            Contato contato = Contatos.getInstance().getContato(editIndex);
 
             System.out.println("Editando Contato");
             System.out.println(contato.recupera());
@@ -88,7 +88,7 @@ public class FormController implements Initializable {
         novoContato.setInfo(new Email(fldEmail.getText()));
         System.out.println(novoContato.recupera());
         try {
-            ContatosMemoria.updateContato(editIndex,novoContato);
+            Contatos.getInstance().updateContato(editIndex,novoContato);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,7 +104,7 @@ public class FormController implements Initializable {
         contato.setInfo(new Telefone(fldTelefone.getText(),TipoTelefone.CELULAR));
         contato.setInfo(new Email(fldEmail.getText()));
         System.out.println(contato.recupera());
-        ContatosMemoria.addContato(contato);
+        Contatos.getInstance().addContato(contato);
     }
 
     public void removeContato(ActionEvent event){
@@ -115,7 +115,7 @@ public class FormController implements Initializable {
         }
         System.out.println("Removendo Contato");
         System.out.printf("\tIndice: %d\n",editIndex);
-        ContatosMemoria.delContato(editIndex);
+        Contatos.getInstance().delContato(editIndex);
         System.out.println("Removido Contato");
         Navegador.navigate("list");
     }

@@ -1,6 +1,6 @@
 package frisney.com.github.agenda.gui.controllers;
 
-import frisney.com.github.agenda.domain.ContatosMemoria;
+import frisney.com.github.agenda.domain.Contatos;
 import frisney.com.github.agenda.util.Navegador;
 import frisney.com.github.listacontatos.classes.Contato;
 import javafx.collections.FXCollections;
@@ -34,7 +34,7 @@ public class ListController implements Initializable {
     public void carregarDados(){
         System.out.println("===============");
         ObservableList<Contato> listaContatos = FXCollections.observableArrayList(
-                ContatosMemoria.getContatos()
+                Contatos.getInstance().getContatos()
         );
         System.out.println("Carregando lista de " + listaContatos.size() + " contatos");
         this.tblLista.setItems(listaContatos);
